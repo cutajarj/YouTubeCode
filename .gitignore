@@ -1,4 +1,8 @@
-# Byte-compiled / optimized / DLL files
+# itellij stuff
+.idea/
+*.iml
+
+# Byte-compiled / optimized / DLL files<
 __pycache__/
 *.py[cod]
 *$py.class
