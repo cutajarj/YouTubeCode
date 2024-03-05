@@ -1,10 +1,10 @@
 import random
 from turtle import *
 
-width = 80
-height = 80
-border = 3
-scale = 10
+width = 140
+height = 140
+border = 2
+scale = 6
 
 move_x = {'N': 0, 'S': 0, 'W': -1, 'E': 1}
 move_y = {'N': -1, 'S': 1, 'W': 0, 'E': 0}
