@@ -6,7 +6,7 @@ height = 80
 border = 3
 scale = 10
 
-# move_x = {'N': 0, 'S': 0, 'W': -1, 'E': 1}
+move_x = {'N': 0, 'S': 0, 'W': -1, 'E': 1}
 move_y = {'N': -1, 'S': 1, 'W': 0, 'E': 0}
 direction_deg = {'N': 0, 'S': 180, 'W': 270, 'E': 90}
 

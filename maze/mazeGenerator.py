@@ -2,10 +2,10 @@ import random
 import time
 from turtle import *
 
-width = 7
-height = 7
-border = 8
-scale = 35
+width = 40
+height = 40
+border = 3
+scale = 20
 
 move_x = {'N': 0, 'S': 0, 'W': -1, 'E': 1}
 move_y = {'N': -1, 'S': 1, 'W': 0, 'E': 0}
