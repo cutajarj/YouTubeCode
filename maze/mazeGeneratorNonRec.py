@@ -1,4 +1,5 @@
 import random
+from collections import deque
 from turtle import *
 
 width = 140
@@ -21,7 +22,7 @@ def push_all(directions, stack, x, y, is_free):
 
 
 def carve_passages_from(ix, iy, is_free):
-    stack = []
+    stack = deque()
     directions = ['N', 'S', 'E', 'W']
     is_free[iy][ix] = False
     push_all(directions, stack, ix, iy, is_free)
