@@ -1,14 +1,5 @@
 from rapidfuzz.distance import Levenshtein
 
-
-def read_all_words():
-    all_words = []
-    with open('/usr/share/dict/words') as f:
-        for line in f:
-            all_words.append(line.strip())
-    return all_words
-
-
 def extract_q_grams(word, q):
     q_grams = []
     for i in range(len(word) - q + 1):
@@ -17,7 +8,7 @@ def extract_q_grams(word, q):
 
 
 def extract_all_q_gram(all_words, q):
-    all_q_grams = {}
+    all_q_grams = {} #'lin' -> set("linear", "spelling", "selling")
     for word in all_words:
         for q_gram in extract_q_grams(word, q):
             all_q_grams[q_gram] = all_q_grams.get(q_gram, set())
@@ -26,14 +17,21 @@ def extract_all_q_gram(all_words, q):
 
 
 def find_closest_matches(all_q_grams, check_word, q):
-    input_q_grams = extract_q_grams(check_word, q)
-    matches = {}
-    for q_gram in input_q_grams:
+    matches = {} #'spelling' -> 4 (q-grams matched)
+    input_q_gram = extract_q_grams(check_word, q)
+    for q_gram in input_q_gram:
         for word in all_q_grams.get(q_gram, []):
             matches[word] = matches.get(word, 0) + 1
     closest_matches = sorted(matches, key=matches.get, reverse=True)[:100]
-
     return sorted(closest_matches, key=lambda m: Levenshtein.distance(check_word, m))[:5]
+
+
+def read_all_words():
+    all_words = []
+    with open('/usr/share/dict/words') as f:
+        for line in f:
+            all_words.append(line.strip())
+    return all_words
 
 
 if __name__ == '__main__':
